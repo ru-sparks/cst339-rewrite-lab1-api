@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class HelloController {
     private final HelloService helloService;
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(HelloController.class);
 
     public HelloController(HelloService helloService) {
         this.helloService = helloService;
@@ -17,6 +18,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public HelloResponse hello() {
+        log.info("hello() endpoint was called");
         return helloService.getHello();
     }
 }
