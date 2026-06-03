@@ -14,6 +14,20 @@ public class InMemoryProductRepository implements ProductRepository {
     private final List<Product> store = Collections.synchronizedList(new ArrayList<>());
     private final AtomicLong idGenerator = new AtomicLong(1);
 
+    public InMemoryProductRepository() {
+        save(new Product(null, "Wireless Mouse", "Ergonomic wireless mouse", 24.99, 150, "Accessories"));
+        save(new Product(null, "Mechanical Keyboard", "RGB backlit keyboard", 79.99, 80, "Accessories"));
+        save(new Product(null, "USB-C Hub", "7-port USB-C hub", 39.99, 120, "Accessories"));
+        save(new Product(null, "Noise Cancelling Headphones", "Over-ear noise cancelling headphones", 129.99, 45,
+                "Audio"));
+        save(new Product(null, "Smartphone Stand", "Adjustable desk phone stand", 14.99, 200, "Accessories"));
+        save(new Product(null, "Portable Charger", "10000mAh power bank", 29.99, 110, "Power"));
+        save(new Product(null, "Bluetooth Speaker", "Waterproof Bluetooth speaker", 59.99, 70, "Audio"));
+        save(new Product(null, "Fitness Tracker", "Heart rate and activity tracker", 49.99, 95, "Wearables"));
+        save(new Product(null, "Laptop Sleeve", "Protective laptop sleeve", 19.99, 160, "Bags"));
+        save(new Product(null, "Webcam", "1080p streaming webcam", 49.99, 55, "Video"));
+    }
+
     @Override
     public List<Product> findAll() {
         synchronized (store) {
