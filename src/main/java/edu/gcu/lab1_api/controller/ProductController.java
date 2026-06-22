@@ -39,10 +39,10 @@ public class ProductController {
     public ResponseEntity<ProductDto> create(@RequestBody ProductDto productDto) {
         log.info("POST /api/products called: {}", productDto);
         ProductDto created = productService.create(productDto);
-        if (created == null || created.getId() == null) {
+        if (created == null || created.id() == null) {
             return ResponseEntity.badRequest().build();
         }
-        URI location = URI.create(String.format("/api/products/%d", created.getId()));
+        URI location = URI.create(String.format("/api/products/%d", created.id()));
         return ResponseEntity.created(location).body(created);
     }
 

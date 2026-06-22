@@ -1,6 +1,6 @@
 package edu.gcu.lab1_api.controller;
 
-import edu.gcu.lab1_api.dto.HelloResponse;
+import edu.gcu.lab1_api.dto.HelloDto;
 import edu.gcu.lab1_api.service.HelloService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ public class HelloController {
     }
 
     @GetMapping("/hello")
-    public HelloResponse hello() {
+    public HelloDto hello() {
         log.info("hello() endpoint was called");
         return helloService.getHello();
     }

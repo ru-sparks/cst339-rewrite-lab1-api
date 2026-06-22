@@ -41,11 +41,11 @@ public class ProductServiceImpl implements ProductService {
                 .map(existing -> {
                     Product updated = new Product(
                             existing.getId(),
-                            productDto.getName(),
-                            productDto.getDescription(),
-                            productDto.getPrice(),
-                            productDto.getQuantity(),
-                            productDto.getCategory());
+                            productDto.name(),
+                            productDto.description(),
+                            productDto.price(),
+                            productDto.quantity(),
+                            productDto.category());
                     return productRepository.save(updated);
                 })
                 .map(this::toDto);
@@ -72,11 +72,11 @@ public class ProductServiceImpl implements ProductService {
         if (dto == null)
             return null;
         return new Product(
-                dto.getId(),
-                dto.getName(),
-                dto.getDescription(),
-                dto.getPrice(),
-                dto.getQuantity(),
-                dto.getCategory());
+                dto.id(),
+                dto.name(),
+                dto.description(),
+                dto.price(),
+                dto.quantity(),
+                dto.category());
     }
 }
