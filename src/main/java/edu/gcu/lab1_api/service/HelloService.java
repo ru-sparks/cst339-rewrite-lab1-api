@@ -1,7 +1,7 @@
 package edu.gcu.lab1_api.service;
 
-import edu.gcu.lab1_api.dto.HelloResponse;
+import edu.gcu.lab1_api.dto.HelloDto;
 
 public interface HelloService {
-    HelloResponse getHello();
+    HelloDto getHello();
 }

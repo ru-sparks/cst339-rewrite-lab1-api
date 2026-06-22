@@ -37,12 +37,12 @@ class ProductServiceImplTest {
 
         assertEquals(1, dtos.size());
         ProductDto dto = dtos.get(0);
-        assertEquals(1L, dto.getId());
-        assertEquals("Widget", dto.getName());
-        assertEquals("A widget", dto.getDescription());
-        assertEquals(19.99, dto.getPrice());
-        assertEquals(10, dto.getQuantity());
-        assertEquals("Tools", dto.getCategory());
+        assertEquals(1L, dto.id());
+        assertEquals("Widget", dto.name());
+        assertEquals("A widget", dto.description());
+        assertEquals(19.99, dto.price());
+        assertEquals(10, dto.quantity());
+        assertEquals("Tools", dto.category());
     }
 
     @Test
@@ -53,7 +53,7 @@ class ProductServiceImplTest {
         Optional<ProductDto> result = productService.findById(2L);
 
         assertTrue(result.isPresent());
-        assertEquals("Gadget", result.get().getName());
+        assertEquals("Gadget", result.get().name());
     }
 
     @Test
@@ -74,8 +74,8 @@ class ProductServiceImplTest {
         ProductDto result = productService.create(dto);
 
         assertNotNull(result);
-        assertEquals(3L, result.getId());
-        assertEquals("New Item", result.getName());
+        assertEquals(3L, result.id());
+        assertEquals("New Item", result.name());
         then(productRepository).should(times(1)).save(any(Product.class));
     }
 
@@ -91,8 +91,8 @@ class ProductServiceImplTest {
         Optional<ProductDto> result = productService.update(4L, updateDto);
 
         assertTrue(result.isPresent());
-        assertEquals(4L, result.get().getId());
-        assertEquals("Updated", result.get().getName());
+        assertEquals(4L, result.get().id());
+        assertEquals("Updated", result.get().name());
         then(productRepository).should(times(1)).findById(4L);
         then(productRepository).should(times(1)).save(any(Product.class));
     }
